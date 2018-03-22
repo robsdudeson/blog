@@ -66,7 +66,10 @@ pipeline {
           script {
           switch (env.BRANCH_NAME){
             case "master":
-              sh 'echo Not doing that yet...'
+              sh 'scp docker-compose.deploy.yml jenkins@docker.robsdudeson.com:/home/jenkins/blog/docker-compose.deploy.yml'
+              sh 'scp deploy.sh jenkins@docker.robsdudeson.com:/home/jenkins/blog/deploy.sh'
+              sh 'ssh jenkins@docker.robsdudeson.com chmod +x /home/jenkins/blog/deploy.sh'
+              sh 'ssh jenkins@docker.robsdudeson.com /home/jenkins/blog/deploy.sh'
             break
             case "develop":
               //sh 'echo its broke on the server side ... will check on it when i get a minute lawlzzzzzz'
