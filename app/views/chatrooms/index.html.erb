@@ -1,0 +1,7 @@
+<table>
+<% @chatrooms.each do |chatroom| %>
+    <% unless @chatroom.topic.to_s.strip.empty? %>
+    <tr><td><%=chatroom.topic%></td></tr>
+    <%end%>
+<% end %>
+</table>
